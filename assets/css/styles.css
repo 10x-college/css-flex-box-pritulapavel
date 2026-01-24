@@ -1,0 +1,327 @@
+/* დაგვათენდაააააააა :D */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+:root {
+    --body-bg: #000000;
+    --container-bg-color: #262525;
+    --white: #ffffff;
+    --violett: #7B20E2;
+    --bg-box-1: linear-gradient(136.58deg, #7B20E2 0%, #2B1043 101.73%);
+    --bg-box-2: #C68E3C;
+    --bg-box-3: #2F847F;
+    --box-1-shadow: inset 0px 4px 32px 20px rgba(0, 0, 0, 0.25);
+    --box-2-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 8px rgba(0, 0, 0, 0.25);
+    --box-3-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 8px rgba(0, 0, 0, 0.25);
+    --box-radius: 36px;
+    --container-border-radius: 24px;
+    --item-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+    --item-shadow-hover: 0px 0px 10px 1px rgb(139 46 239);
+    --item-bg: #1D1D1D;
+    --nav-li-color: rgba(65, 105, 225, 0.08);
+    --nav-active-color: #7B20E2;
+    --nav-default-color: #A7A8AB;
+}
+
+@font-face {
+    font-family: 'Noto Sans Georgian';
+    font-style: normal;
+    font-weight: 100 900;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(../fonts/noroto.woff2) format('woff2');
+    unicode-range: U+0589, U+10A0-10FF, U+1C90-1CBA, U+1CBD-1CBF, U+205A, U+2D00-2D2F, U+2E31;
+}
+
+body {
+    background-color: var(--body-bg);
+    font-family: 'Noto Sans Georgian', sans-serif;
+}
+
+.container-wrapper {
+    display: flex;
+    margin: 25px;
+    padding: 38px 30px;
+    background-color: var(--container-bg-color);
+    height: 100%;
+    min-height: 670px;
+    border-radius: var(--container-border-radius);
+    justify-content: flex-start;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+}
+
+.navigation {
+    width: 56px;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+.menu-toggle-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 10px;
+}
+
+.menu-toggle {
+    height: 0px;
+    border: 1.5px solid var(--white);
+}
+
+#menu-toggle:checked~.navigation {
+    width: 200px;
+}
+
+.menu-toggle:nth-child(1) {
+    width: 21px;
+}
+
+.menu-toggle:nth-child(2) {
+    width: 15px;
+}
+
+.menu-toggle:nth-child(3) {
+    width: 10px;
+}
+
+#menu-toggle:checked+.menu-toggle-wrap .menu-toggle {
+    border-color: var(--violett);
+}
+
+#menu-toggle:checked+.menu-toggle-wrap .menu-toggle:nth-child(1) {
+    width: 10px;
+}
+
+#menu-toggle:checked+.menu-toggle-wrap .menu-toggle:nth-child(2) {
+    width: 15px;
+}
+
+#menu-toggle:checked+.menu-toggle-wrap .menu-toggle:nth-child(3) {
+    width: 21px;
+}
+
+.navigation ul {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.navigation ul li {
+    height: 56px;
+    border-radius: 15px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+    text-decoration: none;
+    white-space: nowrap;
+    color: var(--white);
+}
+
+.navigation ul li:hover .label,
+.navigation ul li:focus-within .label {
+    color: var(--violett);
+}
+
+.navigation ul li:hover,
+.navigation ul li:focus-within {
+    background: var(--nav-li-color);
+}
+
+.navigation ul li:hover .icon,
+.navigation ul li:focus-within .icon {
+    background-color: var(--nav-active-color);
+}
+
+.nav-link .icon {
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    background-color: var(--nav-default-color);
+}
+
+.navigation .home {
+    mask: url('data:image/svg+xml,%3Csvg%20width%3D%2228%22%20height%3D%2228%22%20viewBox%3D%220%200%2028%2028%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M14%202.91667L4.08333%2011.0833L3.5%2023.3333L6.41667%2025.6667H22.1667L24.5%2024.5V10.5L14%202.91667Z%22%20fill%3D%22%237B20E2%22%20stroke%3D%22%237B20E2%22%2F%3E%3Cpath%20d%3D%22M3.5%2010.5L14%202.33333L24.5%2010.5V23.3333C24.5%2023.9522%2024.2542%2024.5457%2023.8166%2024.9832C23.379%2025.4208%2022.7855%2025.6667%2022.1667%2025.6667H5.83333C5.21449%2025.6667%204.621%2025.4208%204.18342%2024.9832C3.74583%2024.5457%203.5%2023.9522%203.5%2023.3333V10.5Z%22%20stroke%3D%22%237B20E2%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M10.5%2022.1667V14H17.5V22.1667%22%20stroke%3D%22white%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E');
+}
+
+.navigation .pages {
+    mask: url('data:image/svg+xml,%3Csvg%20width%3D%2228%22%20height%3D%2228%22%20viewBox%3D%220%200%2028%2028%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M14%202.33333L2.33331%208.16667L14%2014L25.6666%208.16667L14%202.33333Z%22%20stroke%3D%22%23A7A8AB%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M2.33331%2019.8333L14%2025.6667L25.6666%2019.8333%22%20stroke%3D%22%23A7A8AB%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M2.33331%2014L14%2019.8333L25.6666%2014%22%20stroke%3D%22%23A7A8AB%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E');
+}
+
+.navigation .wallet {
+    mask: url('data:image/svg+xml,%3Csvg%20width%3D%2228%22%20height%3D%2228%22%20viewBox%3D%220%200%2028%2028%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M21.9973%203.23706C22.3627%203.23709%2022.6896%203.56403%2022.6896%203.92944V6.79077H24.0705C25.2642%206.79077%2026.2443%207.77094%2026.2443%208.9646V22.5896C26.2443%2023.7833%2025.2642%2024.7634%2024.0705%2024.7634H3.92889C2.73532%2024.7633%201.75604%2023.7832%201.75604%2022.5896V5.70678C1.75604%204.34903%202.86801%203.23706%204.22577%203.23706H21.9973ZM3.14081%2022.5896C3.14081%2023.0368%203.48167%2023.3786%203.92889%2023.3787H24.0705C24.5178%2023.3787%2024.8596%2023.0369%2024.8596%2022.5896V19.1355H16.3693C15.504%2019.1353%2014.7883%2018.4198%2014.7883%2017.5544V13.9998C14.7884%2013.1345%2015.5041%2012.4189%2016.3693%2012.4187H24.8596V8.9646C24.8596%208.51729%2024.5178%208.17553%2024.0705%208.17553C18.3362%208.17553%2010.8972%208.16961%204.22577%208.17553C3.8368%208.17553%203.46833%208.08109%203.14081%207.9187V22.5896ZM16.3693%2013.8035C16.3063%2013.8034%2016.2585%2013.8254%2016.2267%2013.8572C16.1951%2013.8889%2016.1731%2013.9367%2016.173%2013.9998V17.5544C16.173%2017.6176%2016.1951%2017.6653%2016.2267%2017.697C16.2584%2017.7287%2016.3062%2017.7507%2016.3693%2017.7507H24.8596V13.8035H16.3693ZM19.3312%2014.4919C20.0408%2014.4919%2020.6163%2015.0676%2020.6164%2015.7771C20.6164%2016.4867%2020.0408%2017.0623%2019.3312%2017.0623C18.6219%2017.062%2018.0471%2016.4866%2018.0471%2015.7771C18.0471%2015.0677%2018.6219%2014.4922%2019.3312%2014.4919ZM4.22577%204.62182C3.61436%204.62182%203.14081%205.09538%203.14081%205.70678C3.14106%206.31796%203.61452%206.79077%204.22577%206.79077H21.3049V4.62182H4.22577Z%22%20fill%3D%22%23A7A8AB%22%20stroke%3D%22%23A7A8AB%22%20stroke-width%3D%220.2%22%2F%3E%3C%2Fsvg%3E');
+}
+
+.navigation .chart {
+    mask: url('data:image/svg+xml,%3Csvg%20width%3D%2228%22%20height%3D%2228%22%20viewBox%3D%220%200%2028%2028%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M24.745%2018.5383C24.0028%2020.2936%2022.8419%2021.8403%2021.3639%2023.0432C19.8858%2024.2461%2018.1356%2025.0687%2016.2662%2025.4389C14.3968%2025.8092%2012.4652%2025.7158%2010.6402%2025.1671C8.8152%2024.6184%207.15242%2023.6309%205.79721%2022.2911C4.44201%2020.9513%203.43564%2019.2999%202.8661%2017.4813C2.29655%2015.6627%202.18118%2013.7322%202.53005%2011.8587C2.87893%209.98524%203.68143%208.22573%204.86741%206.73403C6.05339%205.24234%207.58672%204.06387%209.33336%203.30167%22%20stroke%3D%22%23A7A8AB%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M25.6667%2014C25.6667%2012.4679%2025.3649%2010.9508%2024.7786%209.53536C24.1923%208.1199%2023.3329%206.83377%2022.2496%205.75042C21.1662%204.66707%2019.8801%203.80771%2018.4646%203.22141C17.0492%202.6351%2015.5321%202.33334%2014%202.33334V14H25.6667Z%22%20stroke%3D%22%23A7A8AB%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E');
+}
+
+.navigation .calendar {
+    mask: url('data:image/svg+xml,%3Csvg%20width%3D%2228%22%20height%3D%2228%22%20viewBox%3D%220%200%2028%2028%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M22.1667%204.66667H5.83333C4.54467%204.66667%203.5%205.71134%203.5%207.00001V23.3333C3.5%2024.622%204.54467%2025.6667%205.83333%2025.6667H22.1667C23.4553%2025.6667%2024.5%2024.622%2024.5%2023.3333V7.00001C24.5%205.71134%2023.4553%204.66667%2022.1667%204.66667Z%22%20stroke%3D%22%23A7A8AB%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M18.6667%202.33333V7%22%20stroke%3D%22%23A7A8AB%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M9.33331%202.33333V7%22%20stroke%3D%22%23A7A8AB%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M3.5%2011.6667H24.5%22%20stroke%3D%22%23A7A8AB%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E');
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.title {
+    width: 100%;
+}
+
+.title h1 {
+    font-size: 16px;
+    color: var(--white);
+    font-weight: 300;
+}
+
+.side-items {
+    display: flex;
+    gap: 60px;
+    flex-flow: column-reverse wrap;
+}
+
+.item {
+    background: var(--item-bg);
+    box-shadow: var(--item-shadow);
+    border-radius: 20px;
+
+    &.small {
+        flex: 1 1 calc((100% - 80px) / 3);
+        min-height: 155px;
+    }
+
+    &.big {
+        flex: 0 0 100%;
+        height: 195px;
+    }
+
+    &.middle {
+        flex: 1 1 calc((100% - 40px) / 2);
+        min-width: 386px;
+        min-height: 157px;
+    }
+
+    &:hover {
+        box-shadow: var(--item-shadow-hover);
+    }
+}
+
+.item-side {
+    width: 285px;
+    height: 273px;
+    background: var(--item-bg);
+    box-shadow: var(--item-shadow);
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        box-shadow: var(--item-shadow-hover);
+    }
+}
+
+.item-side:nth-child(2) {
+    position: relative;
+    width: 285px;
+    height: 273px;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+
+    .colored {
+        width: 218px;
+        height: 251px;
+        border-radius: var(--box-radius);
+        position: absolute;
+        top: 50px;
+        left: 0;
+        transform-origin: bottom left;
+
+        &.violett {
+            background: var(--bg-box-1);
+            box-shadow: var(--box-1-shadow);
+            z-index: 3;
+        }
+
+        &.yellow {
+            background: var(--bg-box-2);
+            box-shadow: var(--box-2-shadow);
+            z-index: 2;
+            transform: translate(0, 0px);
+            animation: yellowRotate 0.5s forwards;
+        }
+
+        &.green {
+            background: var(--bg-box-3);
+            box-shadow: var(--box-3-shadow);
+            z-index: 1;
+            transform: translate(0, 0px);
+            animation: greenRotate 0.5s forwards;
+        }
+    }
+}
+
+@keyframes yellowRotate {
+    to {
+        transform: translate(-4px, -40px) rotate(11deg);
+    }
+}
+
+@keyframes greenRotate {
+    to {
+        transform: translate(3px, -75px) rotate(19deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .container-wrapper {
+        flex-direction: column;
+        margin: 10px;
+        padding: 20px;
+        min-height: auto;
+    }
+
+    .navigation {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+    }
+
+    .side-items {
+        gap: 20px;
+    }
+}
